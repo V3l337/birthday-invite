@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Приглашение на День Рождения</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e1e2f, #3e3e55);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 2em;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2em;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5em;
+      margin-bottom: 2em;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    .tile {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2em 1em;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .tile:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .tile h2 {
+      font-size: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .location, .photo-placeholder {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5em;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 0 auto 2em;
+    }
+
+    .photo-placeholder {
+      margin-top: 1em;
+      height: 200px;
+      border: 2px dashed #aaa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Ты приглашён!</h1>
+    <p>Приходи на мою грандиозную вечеринку 🎉<br>Будет весело, громко и незабываемо!</p>
+  </div>
+
+  <div class="grid">
+    <div class="tile">
+      <h2>🎵 Музыка</h2>
+      <p>Танцуем до утра под лучшие хиты!</p>
+    </div>
+    <div class="tile">
+      <h2>🍹 Бар</h2>
+      <p>Коктейли, шоты и всё, что душе угодно!</p>
+    </div>
+    <div class="tile">
+      <h2>🕺 Танцы</h2>
+      <p>Прокачай танцпол со своими движениями.</p>
+    </div>
+    <div class="tile">
+      <h2>🎉 Атмосфера</h2>
+      <p>Неоновый свет, декор и настоящая магия вечера.</p>
+    </div>
+  </div>
+
+  <div class="location">
+    <h2>📍 Локация</h2>
+    <p>Адрес я сообщу чуть позже — следи за обновлениями!</p>
+  </div>
+
+  <div class="photo-placeholder">
+    Здесь будет фото локации
+  </div>
+</body>
+</html>
