@@ -14,17 +14,35 @@
     }
 
     body {
-      background: linear-gradient(135deg, #1e1e2f, #3e3e55);
+      background: url('https://i.pinimg.com/originals/b4/e3/5e/b4e35e4b926094005f0267c3a2689800.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: scroll;
       color: white;
       min-height: 100vh;
       overflow-x: hidden;
       padding: 2em;
+      animation: fadeIn 1.5s ease-in;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    body > * {
+      position: relative;
+      z-index: 1;
     }
 
     .header {
       text-align: center;
       margin-bottom: 2em;
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeSlideDown 1.5s ease-in-out;
     }
 
     h1 {
@@ -34,44 +52,47 @@
 
     p {
       font-size: 1.2em;
-      color: #ccc;
+      color: #eee;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5em;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2em;
       margin-bottom: 2em;
-      animation: slideUp 1.5s ease-in-out;
+      animation: fadeSlideUp 1.5s ease-in-out;
     }
 
     .tile {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2em 1em;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 2em;
       text-align: center;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      position: relative;
     }
 
     .tile:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
     .tile h2 {
-      font-size: 1.5em;
+      font-size: 1.4em;
       margin-bottom: 0.5em;
+      color: #fff;
     }
 
     .location, .photo-placeholder {
       text-align: center;
       background: rgba(255, 255, 255, 0.05);
       padding: 1.5em;
-      border-radius: 15px;
-      max-width: 600px;
+      border-radius: 12px;
+      max-width: 700px;
       margin: 0 auto 2em;
+      backdrop-filter: blur(6px);
     }
 
     .photo-placeholder {
@@ -84,49 +105,111 @@
       color: #aaa;
     }
 
+    .rsvp {
+      text-align: center;
+      margin-top: 3em;
+    }
+
+    .rsvp input[type="text"], .rsvp input[type="email"] {
+      padding: 0.8em;
+      margin: 0.5em;
+      border: none;
+      border-radius: 8px;
+      width: 250px;
+    }
+
+    .rsvp button {
+      padding: 0.8em 1.5em;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .rsvp button:hover {
+      background-color: #ddd;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #ccc;
+      margin-top: 3em;
+    }
+
+    .footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="header">
     <h1>Ты приглашён!</h1>
-    <p>Приходи на мою грандиозную вечеринку 🎉<br>Будет весело, громко и незабываемо!</p>
+    <p>Присоединяйся к стильной вечеринке — атмосфера, музыка и кайф гарантированы!</p>
   </div>
 
   <div class="grid">
     <div class="tile">
       <h2>🎵 Музыка</h2>
-      <p>Танцуем до утра под лучшие хиты!</p>
+      <p>Весь вечер — только лучшие хиты и танцы до упаду.</p>
     </div>
     <div class="tile">
       <h2>🍹 Бар</h2>
-      <p>Коктейли, шоты и всё, что душе угодно!</p>
+      <p>Коктейли и настроение — миксуем эмоции на максимум.</p>
     </div>
     <div class="tile">
-      <h2>🕺 Танцы</h2>
-      <p>Прокачай танцпол со своими движениями.</p>
+      <h2>💃 Танцы</h2>
+      <p>Танцпол открыт. Главное — взять с собой хорошее настроение!</p>
     </div>
     <div class="tile">
-      <h2>🎉 Атмосфера</h2>
-      <p>Неоновый свет, декор и настоящая магия вечера.</p>
+      <h2>📷 Фото</h2>
+      <p>Запоминаем вечер в стильных кадрах. Фото-плитки будут тут.</p>
     </div>
   </div>
 
   <div class="location">
     <h2>📍 Локация</h2>
-    <p>Адрес я сообщу чуть позже — следи за обновлениями!</p>
+    <p>Точное место будет сообщено лично. Готовься к сюрпризу!</p>
   </div>
 
   <div class="photo-placeholder">
-    Здесь будет фото локации
+    Здесь скоро появятся стильные кадры вечеринки ✨
+  </div>
+
+  <div class="rsvp">
+    <h2>📝 Подтверди участие</h2>
+    <form onsubmit="alert('Спасибо за подтверждение!'); return false;">
+      <input type="text" name="name" placeholder="Твоё имя" required />
+      <input type="email" name="email" placeholder="(необязательно)" />
+      <br />
+      <button type="submit">Я буду!</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>Создано с любовью для друзей 🖤</p>
   </div>
 </body>
 </html>
